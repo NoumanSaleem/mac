@@ -1,0 +1,15 @@
+#!/bin/bash -euf
+
+brew -v >/dev/null 2>&1 || /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+brew bundle
+
+sleep 5;
+
+# AWS
+pip install awscli
+
+# Atom
+mkdir -p "$HOME/.atom"
+ln -s "$(pwd -P)/atom/config.cson" "$HOME/.atom/config.cson"
+ln -s "$(pwd -P)/atom/snippets.cson" "$HOME/.atom/snippets.cson"
+apm install --packages-file atom/packages.txt
