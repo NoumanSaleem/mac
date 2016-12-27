@@ -3,7 +3,7 @@ execute pathogen#infect()
 filetype plugin indent on
 
 set nocompatible
-
+set clipboard=unnamed
 set modelines=0
 
 " Disable arrow keys
