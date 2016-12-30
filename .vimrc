@@ -1,6 +1,12 @@
 filetype off
-execute pathogen#infect()
 filetype plugin indent on
+
+call plug#begin('~/.vim/plugged')
+Plug 'altercation/vim-colors-solarized'
+Plug 'scrooloose/nerdtree'
+Plug 'vim-syntastic/syntastic'
+Plug 'ctrlpvim/ctrlp.vim'
+call plug#end()
 
 set nocompatible
 set clipboard=unnamed
