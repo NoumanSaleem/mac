@@ -1,8 +1,0 @@
-editorconfig
-emmet
-language-docker
-language-plantuml
-linter
-linter-eslint
-plantuml-viewer
-vim-mode

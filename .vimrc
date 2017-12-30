@@ -4,13 +4,16 @@ filetype plugin indent on
 call plug#begin('~/.vim/plugged')
 Plug 'altercation/vim-colors-solarized'
 Plug 'scrooloose/nerdtree'
-Plug 'vim-syntastic/syntastic'
 Plug 'ctrlpvim/ctrlp.vim'
+Plug 'w0rp/ale'
 call plug#end()
 
 set nocompatible
 set clipboard=unnamed
 set modelines=0
+
+set backupdir=./.backup,/tmp
+set directory=.,./.backup,/tmp
 
 " Disable arrow keys
 nnoremap <up> <nop>
@@ -29,6 +32,7 @@ set softtabstop=2
 set expandtab
 set autoindent
 
+set statusline=%f
 set encoding=utf-8
 set scrolloff=3
 set showmode
@@ -44,7 +48,7 @@ set backspace=indent,eol,start
 set laststatus=2
 set relativenumber
 "set undofile
-set title 
+set title
 syntax on
 
 " search
@@ -61,16 +65,20 @@ let g:solarized_termcolors=16
 colorscheme solarized
 
 " syntastic
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-let g:syntastic_loc_list_height=3
+"set statusline+=%#warningmsg#
+"set statusline+=%{SyntasticStatuslineFlag()}
+"set statusline+=%*
+"let g:syntastic_loc_list_height=3
+"
+"let g:syntastic_always_populate_loc_list = 1
+"let g:syntastic_auto_loc_list = 1
+"let g:syntastic_check_on_open = 1
+"let g:syntastic_check_on_wq = 0
+"let g:syntastic_javascript_checkers = ['eslint']
 
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-let g:syntastic_javascript_checkers = ['eslint']
+" ALE
+let g:ale_lint_on_text_changed = 'never'
+
 
 " NERDtree
 let NERDTreeShowHidden=1
@@ -78,6 +86,7 @@ let NERDTreeShowHidden=1
 " ctrlP
 " let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn|node_modules)$'
 let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'
+let g:ctrlp_show_hidden = 1
 
 let mapleader = ","
 

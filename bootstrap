@@ -10,14 +10,11 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/mas
 
 # Symlink dotfiles
 ln -s .zshrc "$HOME/.zshrc"
+ln -s .vimrc "$HOME/.vimrc"
 ln -s .tmux.conf "$HOME/.tmux.conf"
 
 # AWS
 pip install awscli
 
-# Atom
-mkdir -p "$HOME/.atom"
-ln -s "$(pwd -P)/atom/config.cson" "$HOME/.atom/config.cson"
-ln -s "$(pwd -P)/atom/snippets.cson" "$HOME/.atom/snippets.cson"
-apm install --packages-file atom/packages.txt
-
+# nvm
+curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.8/install.sh | bash
