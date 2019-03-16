@@ -1,11 +1,19 @@
 filetype off
 filetype plugin indent on
 
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
 call plug#begin('~/.vim/plugged')
 Plug 'altercation/vim-colors-solarized'
 Plug 'scrooloose/nerdtree'
+Plug 'scrooloose/vim-slumlord'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'w0rp/ale'
+Plug 'shime/vim-livedown'
 call plug#end()
 
 set nocompatible
@@ -13,7 +21,7 @@ set clipboard=unnamed
 set modelines=0
 
 set backupdir=./.backup,/tmp
-set directory=.,./.backup,/tmp
+set directory^=$HOME/.vim/tmp//
 
 " Disable arrow keys
 nnoremap <up> <nop>
@@ -78,6 +86,7 @@ colorscheme solarized
 
 " ALE
 let g:ale_lint_on_text_changed = 'never'
+let b:ale_fixers = ['autopep8']
 
 
 " NERDtree
